@@ -15,4 +15,20 @@ describe('Signup Controller', () => {
     const HttpResponse = sut.handle(HttpRequest)
     expect(HttpResponse.statusCode).toBe(400)
   })
+
+  test('Return 200 if all completed fields', () => {
+    const sut = new SignupController()
+
+    const HttpRequest = {
+      body: {
+        name: 'name',
+        email: 'email@gmail.com',
+        password: 'password',
+        passwordConfirmation: 'password'
+      }
+    }
+
+    const HttpResponse = sut.handle(HttpRequest)
+    expect(HttpResponse.statusCode).toBe(200)
+  })
 })
