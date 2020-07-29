@@ -16,7 +16,13 @@
     "git-commit-msg-linter": "^2.4.4",
     "husky": "^4.2.5",
     "jest": "^26.1.0",
+    "lint-staged": "^10.2.11",
     "ts-jest": "^26.1.4",
     "typescript": "^3.9.7"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --passWithNoTests --watch",
+    "test:staged": "jest --passWithNoTests --findRelatedTests"
   }
 }

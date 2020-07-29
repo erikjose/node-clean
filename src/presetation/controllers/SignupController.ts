@@ -1,5 +1,11 @@
-function teste(): number {
-  return 1
-}
+import { HttpRequest, HttpResponse } from '../protocols/http'
+import { badRequest } from '../helpers/http-helpers'
+import { MissingParamError } from '../errors/missing-param-error'
 
-teste()
+export class SignupController {
+  handle ({ body }: HttpRequest): HttpResponse {
+    if (!body.name) {
+      return badRequest(new MissingParamError('name'))
+    }
+  }
+}
